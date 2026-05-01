@@ -22,10 +22,6 @@ namespace FinancialManager.BLL.Services
 
         public IEnumerable<IncomeDTO> GetAll()
         {
-            // GetAllWithIncludes — EF зробить JOIN з Account і Category
-            // Тепер income.Account і income.Category — НЕ null
-            // AutoMapper побачить Account.Name і Category.Name
-            // і заповнить AccountName і CategoryName в DTO автоматично
             var incomes = _uow.Incomes.GetAllWithIncludes(
                 i => i.Account,
                 i => i.Category
